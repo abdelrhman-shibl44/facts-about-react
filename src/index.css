@@ -16,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background-color: #222;
+  overflow: hidden;
   position: relative;
 }
 
@@ -32,11 +32,19 @@ body::after {
   background-size: 20rem;
   background-position: left;
   opacity: 0.1;
-  z-index: -1;
+  mix-blend-mode: plus-lighter;
 }
 
 .container {
   padding: 15px 30px;
+}
+
+
+/* start style header */
+header {
+  position: relative;
+  height: 70px;
+  transition: 0.1s
 }
 
 .nav-items {
@@ -62,6 +70,7 @@ header .unorderdList {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  transition: 0.5s
 }
 
 header .unorderdList a {
@@ -71,6 +80,38 @@ header .unorderdList a {
   font-size: 19px;
 }
 
+/* burger menu */
+.menu {
+  width: 55px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.7s;
+  display: none;
+}
+
+.menu span {
+  display: block;
+  margin: 8px auto;
+  width: 50px;
+  height: 4px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+.menu span:nth-child(2) {
+  width: 25px;
+  transform: translateX(13px);
+}
+
+.menu:hover span:nth-child(2) {
+  width: 50px;
+  transition: all 0.5s;
+  transform: translateX(0);
+}
+
+/* end header  */
+/* start body */
 .header {
   margin-top: 1.5rem;
   color: #fff;
@@ -100,37 +141,6 @@ header .unorderdList a {
   height: 10px;
   border-radius: 100%;
   background-color: rgb(97 218 251);
-}
-
-/* burger menu */
-.menu {
-  /* background-color: blue; */
-  width: 55px;
-  height: 40px;
-  cursor: pointer;
-  transition: 1;
-  display: none;
-}
-
-.menu span {
-  display: block;
-  margin: 8px auto;
-  width: 50px;
-  height: 4px;
-  border-radius: 10px;
-  background-color: #fff;
-  padding: 0 10px;
-}
-
-.menu span:nth-child(2) {
-  width: 25px;
-  transform: translateX(13px);
-}
-
-.menu:hover span:nth-child(2) {
-  width: 50px;
-  transition: all 0.5s;
-  transform: translateX(0);
 }
 
 /* responsive design */
@@ -177,4 +187,103 @@ header .unorderdList a {
     overflow: hidden;
   }
 
+  header .switch {
+    right: 100px;
+  }
+
 }
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 20px 0;
+  background: #000;
+  color: fff;
+  width: 100%;
+  text-align: center;
+}
+
+/* start  making the dark mode  */
+/* style the switch */
+.switch {
+  position: absolute;
+  width: 52px;
+  right: 345px;
+  display: flex;
+  align-items: center;
+}
+
+.sun,
+.moon {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+
+.sun {
+  left: 6px;
+}
+
+.moon {
+  right: 8px;
+}
+
+.switch input {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: none;
+  left: 0;
+  transition: 0.5s ease;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.switch input:focus {
+  outline: none;
+}
+
+.switch label {
+  position: absolute;
+  width: 100%;
+  border: none;
+  background-color: #000;
+  border: 2px solid #fff;
+  height: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 3px #000;
+}
+
+header.darkMode nav {
+  background-color: #fff;
+}
+
+header.darkMode nav a {
+  color: #000;
+}
+
+header.darkMode .menu span {
+  background-color: #000;
+}
+
+.body {
+  height: 100vh;
+  background-color: #222;
+  color: #000;
+}
+
+.body.light {
+  background: #eee;
+  color: #000;
+}
+
+.body.light h1,
+.body.light li {
+  color: #000;
+}
+
+/* end dark mode  */
