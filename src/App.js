@@ -3,8 +3,8 @@ import { Header } from "./components/Header"
 import { Body } from "./components/Main"
 import { Footer } from "./components/Footer"
 import React from 'react';
-function App({ darkMode }) {
-  const [light, setLight] = React.useState(darkMode)
+function App() {
+  const [light, setLight] = React.useState(false)
   function handleChange() {
     setLight((prev) => !prev)
   }

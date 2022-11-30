@@ -33,12 +33,20 @@ body::after {
   background-position: left;
   opacity: 0.1;
   mix-blend-mode: plus-lighter;
+  pointer-events: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: auto;
 }
 
 .container {
   padding: 15px 30px;
 }
-
 
 /* start style header */
 header {
@@ -55,6 +63,8 @@ header {
   padding: 5px 30px;
   height: 90px;
   background-color: #000;
+  z-index: 99999;
+  position: relative;
 }
 
 
@@ -194,14 +204,10 @@ header .unorderdList a {
 }
 
 footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding: 20px 0;
-  background: #000;
-  color: fff;
   width: 100%;
-  text-align: center;
+  background-color: #fff;
+  padding: 25px 0;
+  text-align: center
 }
 
 /* start  making the dark mode  */
@@ -271,7 +277,7 @@ header.darkMode .menu span {
 }
 
 .body {
-  height: 100vh;
+  flex: 1 0 auto;
   background-color: #222;
   color: #000;
 }
